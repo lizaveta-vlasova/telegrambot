@@ -1,3 +1,3 @@
 log-level: ERROR
 modules:
-  - telegram.bot.Bot
+  - telegram.Bot
