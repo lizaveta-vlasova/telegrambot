@@ -6,7 +6,7 @@ plugins {
 
 group 'telegram'
 version '1.0'
-mainClassName = 'telegram.bot.Bot'
+mainClassName = 'telegram.Bot'
 
 sourceCompatibility = 10
 
