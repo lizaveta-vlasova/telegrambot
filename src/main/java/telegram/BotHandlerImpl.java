@@ -35,7 +35,7 @@ public class BotHandlerImpl extends BotHandler {
 
     @Override
     public String getBotUsername() {
-        return System.getenv("LizavetsTestBot");
+        return System.getenv("lizavetsTestBot");
     }
 
     @Override
