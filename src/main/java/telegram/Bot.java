@@ -12,9 +12,9 @@ public class Bot implements BotModule {
 
     public static void main(String[] args) {
         System.getProperties().put("proxySet", "true");
-        System.getProperties().put("socksProxyHost", "127.0.0.1");
+        System.getProperties().put("socksProxyHost", "159.255.166.183");
 
-        System.getProperties().put("socksProxyPort", "9150");
+        System.getProperties().put("socksProxyPort", "31944");
         ApiContextInitializer.init();
         final var profile = (args.length >= 1 && !args[0].isEmpty()) ? args[0] : "";
         Runner.run(profile, List.of(new Bot()));
