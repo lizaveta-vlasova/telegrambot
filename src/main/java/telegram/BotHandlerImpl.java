@@ -5,8 +5,13 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.logging.BotLogger;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BotHandlerImpl extends BotHandler {
     @Override
@@ -24,10 +29,27 @@ public class BotHandlerImpl extends BotHandler {
         long chatId = message.getChatId();
         SendMessage sm;
         if ("/start".equalsIgnoreCase(text)) {
-            sm = new SendMessage(chatId, "привет! как у тебя дела?");
+            sm = new SendMessage(chatId, "Здравствуйте! Как можно к Вам обращаться?");
         } else {
-            sm = new SendMessage(chatId, text);
+            String name = "Добрый день " + text + "! Выберете интересующие Вас опции :";
+
+            InlineKeyboardMarkup inlineKeyboardMarkup =new InlineKeyboardMarkup();
+            InlineKeyboardButton firstButton = new InlineKeyboardButton();
+            firstButton.setText("визы");
+            firstButton.setCallbackData("Информация по визам");
+
+            InlineKeyboardButton secondButton = new InlineKeyboardButton();
+            secondButton.setText("путевки");
+            secondButton.setCallbackData("Отправить заявку");
+
+            List<InlineKeyboardButton> row = List.of(firstButton, secondButton);
+            List<List<InlineKeyboardButton>> rowList= new ArrayList<>();
+            rowList.add(row);
+            inlineKeyboardMarkup.setKeyboard(rowList);
+
+            sm = new SendMessage().setChatId(chatId).setText(name).setReplyMarkup(inlineKeyboardMarkup);
         }
+
         try {
             execute(sm);
         } catch (TelegramApiException e) {
