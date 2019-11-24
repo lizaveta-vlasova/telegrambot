@@ -35,11 +35,11 @@ public class BotHandlerImpl extends BotHandler {
 
     @Override
     public String getBotUsername() {
-        return System.getenv("testLizaveta_bot");
+        return "testLizaveta_bot";
     }
 
     @Override
     public String getBotToken() {
-        return System.getenv("1028166269:AAFM0eiftIE_SAqu2Cx-sbp1QQ0LjtDm0ic");
+        return "1028166269:AAFM0eiftIE_SAqu2Cx-sbp1QQ0LjtDm0ic";
     }
 }
