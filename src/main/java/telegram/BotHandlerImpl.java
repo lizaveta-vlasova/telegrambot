@@ -22,8 +22,12 @@ public class BotHandlerImpl extends BotHandler {
 
         String text = message.getText();
         long chatId = message.getChatId();
-
-        SendMessage sm = new SendMessage(chatId, text);
+        SendMessage sm;
+        if ("/start".equalsIgnoreCase(text)) {
+            sm = new SendMessage(chatId, "привет! как у тебя дела?");
+        } else {
+            sm = new SendMessage(chatId, text);
+        }
         try {
             execute(sm);
         } catch (TelegramApiException e) {
