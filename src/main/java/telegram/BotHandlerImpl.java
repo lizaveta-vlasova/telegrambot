@@ -29,25 +29,11 @@ public class BotHandlerImpl extends BotHandler {
         long chatId = message.getChatId();
         SendMessage sm;
         if ("/start".equalsIgnoreCase(text)) {
-            sm = new SendMessage(chatId, "Здравствуйте! Как можно к Вам обращаться?");
+            sm = new SendMessage(chatId, "Привет! Как тебя зовут?");
         } else {
-            String name = "Добрый день " + text + "! Выберете интересующие Вас опции :";
+            String name = "Привет, " + text + "! Хорошего тебе дня!";
 
-            InlineKeyboardMarkup inlineKeyboardMarkup =new InlineKeyboardMarkup();
-            InlineKeyboardButton firstButton = new InlineKeyboardButton();
-            firstButton.setText("визы");
-            firstButton.setCallbackData("Информация по визам");
-
-            InlineKeyboardButton secondButton = new InlineKeyboardButton();
-            secondButton.setText("путевки");
-            secondButton.setCallbackData("Отправить заявку");
-
-            List<InlineKeyboardButton> row = List.of(firstButton, secondButton);
-            List<List<InlineKeyboardButton>> rowList= new ArrayList<>();
-            rowList.add(row);
-            inlineKeyboardMarkup.setKeyboard(rowList);
-
-            sm = new SendMessage().setChatId(chatId).setText(name).setReplyMarkup(inlineKeyboardMarkup);
+            sm = new SendMessage().setChatId(chatId).setText(name + Data.ARTICLE);
         }
 
         try {
