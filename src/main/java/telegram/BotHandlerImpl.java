@@ -5,13 +5,8 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
-import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.meta.logging.BotLogger;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class BotHandlerImpl extends BotHandler {
     @Override
@@ -47,11 +42,11 @@ public class BotHandlerImpl extends BotHandler {
 
     @Override
     public String getBotUsername() {
-        return "testLizaveta_bot";
+        return "flamingo_articleBot";
     }
 
     @Override
     public String getBotToken() {
-        return "1028166269:AAFM0eiftIE_SAqu2Cx-sbp1QQ0LjtDm0ic";
+        return "1011233277:AAFDodeTzVrUoh2FXtjuOY9sem0uSvTgoEo";
     }
 }
