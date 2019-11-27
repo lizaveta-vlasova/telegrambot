@@ -23,16 +23,19 @@ public class BotHandlerImpl extends BotHandler {
         String text = message.getText();
         long chatId = message.getChatId();
         SendMessage sm;
+        SendMessage sm2 = new SendMessage();
         if ("/start".equalsIgnoreCase(text)) {
             sm = new SendMessage(chatId, "Привет! Как тебя зовут?");
         } else {
             String name = "Привет, " + text + "! Хорошего тебе дня!";
 
-            sm = new SendMessage().setChatId(chatId).setText(name + Data.ARTICLE);
+            sm = new SendMessage().setChatId(chatId).setText(name + Data.ARTICLE_FIRST);
+            sm2.setChatId(chatId).setText(Data.ARTICLE_SECOND);
         }
 
         try {
             execute(sm);
+            execute(sm2);
         } catch (TelegramApiException e) {
             BotLogger.error("SEND", e.toString());
         }
